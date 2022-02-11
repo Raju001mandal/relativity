@@ -1,0 +1,148 @@
+set terminal wxt background 'black'
+
+
+set view 120,20
+set view 120,20
+
+unset key
+unset tics
+
+unset border
+unset grid
+
+set palette rgb 33,13,10
+unset colorbox
+
+set xrange[-10:1500]
+set yrange[-2:10.5]
+set zrange[-2:10.5]
+
+set object 1 circle at 1100,0,3 fc rgb 'yellow' size  10 fs solid front
+
+do for [ii=1:890] {
+     
+     set multiplot layout 1,1
+     
+      if (ii>1){
+       
+         set label 100 'Galilean/Newtonian Relativity' at 250,0,10 textcolor "white" font ",18"
+         set label 200 'O' at -70,0,0 textcolor "green" font ",18"
+         set label 201 'x' at 200,0,0.5 textcolor "green" font ",18"
+         set label 202 'y' at -70,0,5 textcolor "green" font ",18"
+         set label 203 'z' at -70,5,0 textcolor "green" font ",18"
+         set label 204 'CONSIDERING MOTION ALONG POSITIVE X-DIRECTION HERE' at 100,0,-6 textcolor "white" font ",15"
+         
+        }
+        
+       if (ii>888){
+       
+
+         unset label 204 
+         
+        }
+         
+       
+        
+      if (ii>600){
+       
+         set label 101 'Galilean Transformations' at 1450,0,9 textcolor "yellow" font ",18"
+         
+          set label 102 "t' =" at 1650,0,7 textcolor "white" font ",18"
+          set label 103 "x' =" at 1650,0,5 textcolor "white" font ",18"
+          set label 104 "y' =" at 1650,0,3 textcolor "white" font ",18"
+          set label 105 "z' =" at 1650,0,1 textcolor "white" font ",18"
+          
+          set label 106 't' at 1780,0,6.8 textcolor "green" font ",18"
+          set label 107 'x - Vt' at 1780,0,4.8 textcolor "green" font ",18"
+          set label 108 'y' at 1780,0,2.8 textcolor "green" font ",18"
+          set label 109 'z' at 1780,0,0.8 textcolor "green" font ",18"
+          
+          
+        }  
+    
+     
+     splot 'grsr.dat' u 1:2:3:($4-$1):($5-$2):($6-$3) every ::ii::ii w vec head lw 2 lc rgb "white" ,\
+           'grsr2.dat' u 1:2:3:($4-$1):($5-$2):($6-$3) every ::ii::ii w vec head lw 2 lc rgb "white" ,\
+           'grsr3.dat' u 1:2:3:($4-$1):($5-$2):($6-$3) every ::ii::ii w vec head lw 2 lc rgb "white" ,\
+           'grsr7.dat' u 1:2:3:($4-$1):($5-$2):($6-$3) every ::ii::ii w vec head lw 2 lc rgb "white" ,\
+           'grsr4.dat' u 1:2:3:($4-$1):($5-$2):($6-$3) every ::ii::ii w vec head lw 2 lc rgb "green" ,\
+           'grsr5.dat' u 1:2:3:($4-$1):($5-$2):($6-$3) every ::ii::ii w vec head lw 2 lc rgb "green" ,\
+           'grsr6.dat' u 1:2:3:($4-$1):($5-$2):($6-$3) every ::ii::ii w vec head lw 2 lc rgb "green"
+    
+      
+      if (ii==100){
+       
+         set label 1 'V=const.' at 300,0,5 textcolor "white" font ",15"
+         
+        }
+        
+        
+      if (ii>260){
+       
+         unset label 1 
+         
+        } 
+        
+         
+      if (ii==300){
+       
+         set label 2 'V=const.' at 500,0,5 textcolor "white" font ",15"
+         
+        }
+        
+     if (ii>460){
+       
+         unset label 2 
+         
+        }    
+        
+        
+      if (ii==590){
+       
+         set label 3 'V=const.' at 750,0,5 textcolor "white" font ",15"
+         
+        }   
+        
+      if (ii>800){
+       
+         unset label 3
+         
+        }   
+      
+      if (ii>10){
+       
+         set label 4 'E(x,y,z,t)' at 1105,0,4.5 textcolor "green" font ",18"
+         set label 5 "E(x',y',z',t')" at 1105,0,2 textcolor "white" font ",18"
+         
+        }
+        
+     
+      if (ii==889){
+       
+         set arrow nohead from 887,0,3 to 1100,0,3  lc rgb "white" dt 3 lw 1
+         set arrow nohead from 0,0,3 to 887,0,3  lc rgb "green" dt 3 lw 1
+        }   
+        
+     
+     if (ii==889){
+       
+         set arrow nohead from 0,0,-1 to 1100,0,-1  lc rgb "green" dt 3 lw 1
+         
+        }   
+        
+      if (ii==889){
+       
+        set label 6 'x = Vt + ' at 330,0,-2 textcolor "green" font ",15" 
+        set label 7 'Vt' at 400,0,4 textcolor "green" font ",12" 
+        set label 8 "x'" at 970,0,2.5 textcolor "white" font ",15" 
+        set label 9 "x'" at 550,0,-2.3 textcolor "white" font ",15" 
+        }   
+        
+     
+     unset multiplot
+    
+   
+     
+}
+
+

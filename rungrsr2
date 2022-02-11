@@ -1,0 +1,198 @@
+set terminal wxt background 'black'
+
+
+
+unset key
+unset tics
+
+unset border
+unset grid
+
+set palette rgb 33,13,10
+unset colorbox
+
+set xrange[-2:15]
+set yrange[-2.5:10]
+
+
+
+
+do for [ii=1:550] {
+     
+     set multiplot layout 1,1
+     
+     
+     if(ii>1){
+        
+      set label 100 'SPACETIME DIAGRAM (x-t) IN GALILEAN RELATIVITY' at 1,9 textcolor "green" font ",18"
+      set label 1 'x,' at 5,-0.5 textcolor "green" font ",18"
+       set label 2 't' at -0.5,5 textcolor "green" font ",18"
+       set label 3 "x'" at 5.4,-0.5 textcolor "white" font ",18"
+       set label 4 "t'" at 2.3,5.5 textcolor "white" font ",18"
+       set label 5 "O" at -0.5,0 textcolor "green" font ",18"
+      
+      set arrow head from 0,0 to 2,5  lc rgb "white"  lw 1
+      set arrow head from 0,0 to 5,0  lc rgb "white" dt 3 lw 1
+      
+     }
+     
+     
+     
+     if(ii>70){
+        
+       set label 101 "x' axis (t'=0)" at 9,4 textcolor "white" font ",18"
+       set label 102 "t=0" at 10,3 textcolor "green" font ",18"
+       
+       set label 103 "t' axis (x'=0)" at 9,2 textcolor "white" font ",18"
+       set label 104 "t=(1/V)x" at 9.5,1 textcolor "green" font ",18" 
+       
+       set label 105 "axes of moving(white) frame w.r.t rest(green) frame axes" at 5.8,7 textcolor "yellow" font ",18"
+       set label 106 "(Use Galilean Transformation Equations)" at 7,6 textcolor "yellow" font ",18"
+       
+      
+     }
+     
+        
+        
+        if(ii>250){
+        
+       unset label 101 
+       unset label 102 
+       
+       unset label 103 
+       unset label 104 
+       
+       unset label 105 
+       unset label 106  
+        
+     }
+     
+     
+     if(ii>255){
+        
+     
+       
+       set label 106 "Covariance (Form Invariance) of Newton's 2nd Law Of Motion" at 4.5,7 textcolor "yellow" font ",18"
+       set label 107 "(Use Galilean Transformation Equations)" at 8,6 textcolor "yellow" font ",18"
+       set label 150 "each star(*) here denotes a time derivative" at 7.5,5 textcolor "yellow" font ",18"
+       set label 151 "x' =" at 8.5,4 textcolor "white" font ",18"
+       set label 152 "x - Vt" at 9.3,4 textcolor "green" font ",18"
+       set label 153 "(x')* =" at 8.1,3 textcolor "white" font ",18"
+       set label 154 "x*  - V" at 9.4,3 textcolor "green" font ",18"
+       set label 155 "(x')** =" at 8.1,2 textcolor "white" font ",18"
+       set label 156 "x**" at 9.4,2 textcolor "green" font ",18"
+       set label 155 "m(x')** =" at 7.6,1.5 textcolor "white" font ",18"
+       set label 156 "m(x)**" at 9.4,1.5 textcolor "green" font ",18"
+       
+       set label 157 "F'" at 8.5,0.7 textcolor "white" font ",18"
+       set label 158 "=" at 9,0.7 textcolor "white" font ",18"
+       set label 159 "F" at 9.6,0.7 textcolor "green" font ",18"
+       set label 160 "(What about MAXWELL EQN. ??)" at 7.5,-1 textcolor "yellow" font ",18"
+       
+     }
+     
+     
+     if(ii>355){
+     
+     unset label 106
+     unset label 107
+     unset label 150
+     unset label 151
+     unset label 152
+     unset label 153
+     unset label 154
+     unset label 155
+     unset label 156
+     unset label 157
+     unset label 158
+     unset label 159
+     unset label 160
+        
+        }
+        
+     
+     if(ii>360){
+     
+     set label 400 "Consider two events E1 and E2" at 9,7 textcolor "yellow" font ",18"
+     set label 501 "simultaneous in white frame" at 9,6 textcolor "white" font ",18"
+     set label 502 "also simultaneous in green frame" at 9,5 textcolor "green" font ",18"
+     set label 503 "also see :" at 9,4 textcolor "yellow" font ",18"
+     set label 504 "x'2 - x'1 =" at 9,3 textcolor "white" font ",18"
+     set label 505 "x2 - x1 " at 11,3 textcolor "green" font ",18"
+      set label 611 "====================================" at 7,2.5 textcolor "white" font ",18"
+      set label 600 "Consider events E1 and E3" at 9,2 textcolor "yellow" font ",18"
+      set label 608 "nonsimultaneous in both frames" at 9,1 textcolor "yellow" font ",18"
+      set label 609 "happens at the same place in white frame" at 7.8,0 textcolor "white" font ",18"
+      set label 610 "but at different places in green frame" at 8.9,-1 textcolor "green" font ",18"
+      set label 620 "showing distance is already relative in classical mechanics" at 5.0,-2 textcolor "yellow" font ",18"
+     
+     set object 1 circle at 2.2,3 fc rgb 'yellow' size  0.1 fs solid front
+     set object 2 circle at 4.2,3 fc rgb 'yellow' size  0.1 fs solid front
+     set object 3 circle at 3.0,5 fc rgb 'yellow' size  0.1 fs solid front
+     set label 401 "E1" at 2.0,3.5 textcolor "yellow" font ",16"
+     set label 402 "E2" at 3.8,3.5 textcolor "yellow" font ",16"
+     set label 403 "t" at -0.5,3  textcolor "green" font ",16"
+     set label 404 "t'" at 1.1,3.3  textcolor "white" font ",16"
+     set label 405 "x'1" at 0.8,-0.5  textcolor "white" font ",16"
+     set label 406 "x'2" at 2.8,-0.5 textcolor "white" font ",16"
+     set label 601 "E3" at 2.9,5.4 textcolor "yellow" font ",16"
+     
+     set arrow nohead from 2.2,3 to 2.2,0  lc rgb "green" dt 3 lw 1
+     set arrow nohead from 4.2,3 to 4.2,0  lc rgb "green" dt 3 lw 1
+     
+     set label 407 "x1" at 2.2,-0.5  textcolor "green" font ",16"
+     set label 408 "x2" at 4.2,-0.5 textcolor "green" font ",16"
+     }   
+        
+         
+      plot 'grsr5.dat' u 2:3:($5-$2):($6-$3) every ::ii::ii w vec head lw 1 lc rgb "green" ,\
+           'grsr6.dat' u 2:3:($5-$2):($6-$3) every ::ii::ii w vec head lw 1 lc rgb "green"
+    
+    
+    
+     if(ii>150){
+     
+      
+      set arrow nohead from 1,0 to 1,5  lc rgb "green" dt 3 lw 1
+      set arrow nohead from 2,0 to 2,5  lc rgb "green" dt 3 lw 1
+      set arrow nohead from 3,0 to 3,5  lc rgb "green" dt 3 lw 1
+      set arrow nohead from 4,0 to 4,5  lc rgb "green" dt 3 lw 1
+      set arrow nohead from 5,0 to 5,5  lc rgb "green" dt 3 lw 1
+      set arrow nohead from 0,1 to 5,1  lc rgb "green" dt 3 lw 1
+      set arrow nohead from 0,2 to 5,2  lc rgb "green" dt 3 lw 1
+      set arrow nohead from 0,3 to 5,3  lc rgb "green" dt 3 lw 1
+      set arrow nohead from 0,4 to 5,4  lc rgb "green" dt 3 lw 1
+      set arrow nohead from 0,5 to 5,5  lc rgb "green" dt 3 lw 1
+      set arrow head from 0,0 to 5,0  lc rgb "green" dt 3 lw 1
+      
+      
+       
+       
+     }
+    
+    
+      
+    
+      
+     if(ii>180){
+     
+      set arrow nohead from 1,0 to 3,5  lc rgb "white" dt 3 lw 1
+      set arrow nohead from 2,0 to 4,5  lc rgb "white" dt 3 lw 1
+      set arrow nohead from 3,0 to 5,5  lc rgb "white" dt 3 lw 1
+      set arrow nohead from 4,0 to 6,5  lc rgb "white" dt 3 lw 1
+      set arrow nohead from 5,0 to 7,5  lc rgb "white" dt 3 lw 1
+      set arrow nohead from 0.4,1 to 5.4,1  lc rgb "white" dt 3 lw 1
+      set arrow nohead from 0.8,2 to 5.8,2  lc rgb "white" dt 3 lw 1
+      set arrow nohead from 1.2,3 to 6.2,3  lc rgb "white" dt 3 lw 1
+      set arrow nohead from 1.6,4 to 6.6,4  lc rgb "white" dt 3 lw 1
+      set arrow nohead from 2.0,5 to 7.0,5  lc rgb "white" dt 3 lw 1
+     
+     }
+     
+     unset multiplot
+    
+    pause 0.02
+     
+}
+
+
